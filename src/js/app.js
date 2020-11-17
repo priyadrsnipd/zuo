@@ -79,7 +79,7 @@ function toggleModal() {
   }
 }
 investNowBtn.addEventListener('click', () => {
-  console.log("hello im invest now event listener");
+  console.log("hello im invest now event listener..");
   toggleModal();
 })
 

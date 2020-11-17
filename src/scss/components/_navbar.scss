@@ -1,0 +1,43 @@
+.horizontal-nav {
+  // box-shadow: inset 0 -3px 0 0 $border-primary;
+  display: inline-flex;
+  border-right: 1px solid var(--half-bgcolor);
+
+  li {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .active-nav {
+    a {
+      font-weight: bold;
+      color: $primary-color;
+    }
+  }
+
+  a {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.main-nav {
+  &__logo {
+    display: inline-block;
+    width: 123px;
+    height: 39px;
+    background: url('/src/images/brand-logo.svg') no-repeat center/cover;
+    vertical-align: middle;
+    margin-right: 58px;
+  }
+}

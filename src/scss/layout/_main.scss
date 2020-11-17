@@ -1,0 +1,503 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+a.btn {
+  display: inline-block;
+
+  @include mQ('(max-width: 796px)') {
+    display: none;
+  }
+}
+
+.opportunities,
+.investments,
+.how-it-works,
+.reviews,
+.review,
+.action {
+  h2 {
+    font-size: 36px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+  .description {
+    max-width: 704px;
+    margin-bottom: 82px;
+    font-size: 18px;
+    color: $greyish-black;
+    line-height: 1.8;
+  }
+}
+
+// OPPORTUNITIES
+.opportunities {
+  text-align: center;
+  padding-bottom: 104px;
+  margin-bottom: 82px;
+  border-bottom: 2px solid #f7f7f7;
+
+  .description {
+    max-width: 550px;
+    margin: 0 auto 87px auto;
+  }
+
+  .card:first-child {
+    animation: slideInLeft 1s ease forwards;
+  }
+
+  .card:last-child {
+    animation: slideInRight 1s ease forwards;
+  }
+
+  .card-container {
+    .card {
+      @include mQ('(max-width: 1024px)') {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+
+      // @include mQ('(max-width: 786px)') {
+      //   margin-right: 36px;
+      //   margin-bottom: 30px;
+      // }
+
+      @include mQ('(max-width: 425px)') {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.slideInUp {
+  animation: slideInUp 1s ease forwards;
+}
+
+@keyframes slideInLeft {
+  0% {
+    margin-left: -520px;
+    margin-right: 520px;
+  }
+
+  100% {
+    margin-left: 0;
+    margin-right: 40px;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    margin-left: 520px;
+    margin-right: -520px;
+  }
+
+  100% {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    trnasform: translateY(0);
+  }
+}
+
+// INVESTMENTS
+
+.investments {
+  margin: 0 auto 117px auto;
+
+  & > p {
+    margin: 0 0 94px 0;
+  }
+
+  .card {
+    max-width: 512px;
+    width: 100%;
+    height: auto;
+    flex-basis: 512px;
+    padding: 39px 0 56px 72px;
+
+    &:first-child {
+      background: linear-gradient(
+          to bottom,
+          rgba(97, 118, 127, 0),
+          $greyish-black
+        ),
+        url('/src/images/short-term-investment.jpg') top left / cover;
+    }
+
+    &:last-child {
+      background: linear-gradient(
+          to bottom,
+          rgba(97, 118, 127, 0),
+          $greyish-black
+        ),
+        url('/src/images/long-term-investment.jpg') top left / cover;
+    }
+    span,
+    h3,
+    p {
+      max-width: 248px;
+    }
+
+    span {
+      font-size: 14px;
+      text-transform: uppercase;
+      line-height: 1.71;
+      letter-spacing: 2.8px;
+      color: $primary-color;
+      position: relative;
+      margin-bottom: 82px;
+
+      &::after {
+        content: '';
+        width: 56px;
+        height: 4px;
+        position: absolute;
+        left: 0;
+        bottom: -17px;
+        border-radius: 2px;
+        background-color: $white;
+      }
+    }
+
+    h3 {
+      font-size: 31px;
+      color: $white;
+    }
+
+    p {
+      color: #e2efd2;
+      margin-bottom: 28px;
+    }
+  }
+
+  .card-container {
+    flex-wrap: nowrap;
+
+    @include mQ('(max-width: 1024px)') {
+      flex-direction: column;
+
+      .card {
+        margin-right: 0;
+        margin-bottom: 30px;
+        padding: 39px 0 56px 42px;
+      }
+    }
+  }
+}
+
+// HOW IT WORKS
+
+.how-it-works {
+  background: url('/src/images/how-it-works.png') no-repeat center / cover;
+  text-align: center;
+  color: $white;
+  padding: 106px 0 143px 0;
+  margin-bottom: 134px;
+
+  @include mQ('(max-width: 796px)') {
+    padding: 106px 40px 143px 40px;
+  }
+
+  .description {
+    margin: 0 auto 50px auto;
+    color: #e8f5e9;
+  }
+
+  & ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 83px;
+  }
+
+  & li {
+    border-radius: 50%;
+    border: solid 2px #b3dcb6;
+    background-color: $primary-color;
+    position: relative;
+    margin-left: 139px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 74px;
+      width: 139px;
+      height: 2px;
+      background-color: #a5d6a7;
+    }
+
+    &:first-child {
+      margin-left: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &:hover,
+    &.active {
+      background-color: $white;
+      border-color: transparent;
+
+      button {
+        color: $primary-color;
+      }
+    }
+
+    &.active::before {
+      background-color: $white;
+    }
+
+    @include mQ('(max-width: 796px)') {
+      margin-left: 58px;
+
+      button {
+        width: 52px;
+        height: 52px;
+        line-height: 42px;
+      }
+
+      &::before {
+        width: 58px;
+        right: 53px;
+      }
+    }
+
+    @include mQ('(max-width: 435px)') {
+      margin-left: 28px;
+
+      button {
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+      }
+
+      &::before {
+        width: 28px;
+        right: 33px;
+      }
+    }
+  }
+
+  & button {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    line-height: 72px;
+    font-size: 18px;
+  }
+
+  .steps {
+    section {
+      display: none;
+      text-align: left;
+      animation: slideIn 1s ease forwards;
+
+      h3 {
+        max-width: 280px;
+        width: 100%;
+        font-size: 24px;
+        line-height: 1.3;
+        margin-right: 56px;
+      }
+
+      p {
+        max-width: 352px;
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #e8f5e9;
+      }
+    }
+
+    .show-step {
+      display: flex;
+      justify-content: center;
+
+      @include mQ('(max-width: 796px)') {
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
+        h3 {
+          margin: 0 0 30px 0;
+        }
+      }
+
+      @include mQ('(max-width: 435px)') {
+        animation-name: fadeIn;
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    margin-left: 35%;
+  }
+
+  100% {
+    margin-left: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// REVIEWS
+
+.reviews {
+  padding: 133px 0 92px 0;
+
+  h2 {
+    line-height: 1.3;
+    max-width: 411px;
+    margin: 0 0 61px 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 155px;
+      height: 108px;
+      border-radius: 4.5px;
+      background-color: rgba(102, 187, 106, 0.25);
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
+  .review {
+    padding: 47px 17px 52px 48px;
+    border-radius: 5px;
+    box-shadow: -1px 13px 20px 0 #f0f2f4;
+    background-color: $white;
+    margin-right: 40px;
+    min-width: 408px;
+    width: 100%;
+    white-space: nowrap;
+
+    img {
+      vertical-align: middle;
+      margin-right: 25px;
+    }
+
+    .user-profile {
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 246px;
+      width: 100%;
+
+      span {
+        display: block;
+        font-size: 18px;
+        line-height: 1.3;
+        color: #263238;
+        font-weight: bold;
+        // width: fit-content;
+        white-space: pre-wrap;
+      }
+
+      span:first-child {
+        color: $primary-color;
+      }
+    }
+
+    p {
+      margin-top: 27px;
+      margin-bottom: 0;
+      white-space: initial;
+      height: 98px;
+      max-width: 296px;
+      width: 100%;
+      overflow: hidden;
+
+      q {
+        quotes: '“' '';
+      }
+    }
+    @include mQ('(max-width: 425px)') {
+      min-width: 328px;
+      padding: 37px 17px 52px 35px;
+
+      .user-profile {
+        max-width: 206px;
+      }
+    }
+  }
+}
+
+// ACTION
+.action {
+  border-radius: 5px;
+  box-shadow: -1px 25px 20px 0 #f2f2f2;
+  text-align: center;
+  padding: 77px 0 79px 0;
+  margin-top: 92px;
+
+
+  & > h2 {
+    margin-bottom: 40px;
+
+    span {
+      color: $primary-color;
+    }
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+
+  &-content {
+    width: 500px;
+    height: 500px;
+    background-color: $white;
+    border-radius: 5px;
+    position: relative;
+
+    button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+}

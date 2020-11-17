@@ -1,0 +1,23 @@
+.carousel-container {
+  overflow: hidden;
+
+}
+
+.carousel {
+  display: flex;
+  flex: 0 0 408px;
+  margin: 60px 0 56px -158px;
+
+  @include mQ('(max-width: 768px)') {
+    margin-left: -280px;
+  }
+
+  @include mQ('(max-width: 425px)') {
+    flex-basis: 308px;
+    margin-left: 0;
+  }
+}
+
+.slider-transition {
+  transition: transform 0.7s ease-in-out;
+}

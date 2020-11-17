@@ -9,6 +9,10 @@
   font-family: inherit;
   line-height: normal;
 
+  &:hover {
+    background-color: lighten($color: $primary-color, $amount: 60%);
+  }
+
   &:focus {
     outline: none;
   }

@@ -203,3 +203,10 @@ const FlexSlider = {
 };
 
 FlexSlider.init();
+
+
+const button = document.querySelector(".btn-hover");
+
+button.addEventListener('click', () => {
+  console.log("undefined button");
+})

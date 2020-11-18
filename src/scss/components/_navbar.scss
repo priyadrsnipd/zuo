@@ -5,16 +5,15 @@
 
   li {
     display: inline-block;
-    cursor: pointer;
     vertical-align: middle;
 
     &:last-child {
       margin-right: 0;
     }
+  }
 
-    &:hover {
+  a:hover {
       color: $primary-color;
-    }
   }
 
   .active-nav {
@@ -28,16 +27,5 @@
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
-  }
-}
-
-.main-nav {
-  &__logo {
-    display: inline-block;
-    width: 123px;
-    height: 39px;
-    background: url('/src/images/brand-logo.svg') no-repeat center/cover;
-    vertical-align: middle;
-    margin-right: 58px;
   }
 }

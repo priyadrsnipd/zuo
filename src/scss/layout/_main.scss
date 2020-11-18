@@ -2,81 +2,50 @@ html {
   scroll-behavior: smooth;
 }
 
-.clearfix {
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-}
-
-.hidden {
-  opacity: 0;
-}
-
-a.btn {
+.btn {
   display: inline-block;
-
-  @include mQ('(max-width: 796px)') {
-    display: none;
-  }
 }
 
-.opportunities,
-.investments,
-.how-it-works,
-.reviews,
-.review,
-.action {
-  h2 {
-    font-size: 36px;
-    line-height: 1.8;
-    margin-bottom: 14px;
-  }
-  .description {
-    max-width: 704px;
-    margin-bottom: 82px;
-    font-size: 18px;
-    color: $greyish-black;
-    line-height: 1.8;
-  }
+.secondary-para {
+  max-width: 704px;
+  margin-bottom: 82px;
+  font-size: 18px;
+  color: $greyish-black;
+  line-height: 1.8;
 }
 
 // OPPORTUNITIES
 .opportunities {
+  margin-top: 100vh;
   text-align: center;
   padding-bottom: 104px;
-  margin-bottom: 82px;
   border-bottom: 2px solid #f7f7f7;
 
-  .description {
+  @include mQ('(max-width: 768px)') {
+    padding-top: 50px;
+  }
+
+  .secondary-para {
     max-width: 550px;
     margin: 0 auto 87px auto;
   }
 
-  .card:first-child {
-    animation: slideInLeft 1s ease forwards;
-  }
-
-  .card:last-child {
-    animation: slideInRight 1s ease forwards;
+  .card {
+    text-align: left;
+    width: 328px;
   }
 
   .card-container {
     .card {
-      @include mQ('(max-width: 1024px)') {
+      @include mQ('(max-width: 1024px)' ) {
         margin-right: 0;
         margin-bottom: 30px;
       }
+    }
 
-      // @include mQ('(max-width: 786px)') {
-      //   margin-right: 36px;
-      //   margin-bottom: 30px;
-      // }
-
-      @include mQ('(max-width: 425px)') {
-        margin-right: 0;
-        margin-bottom: 30px;
+    .card:last-child {
+      @include mQ('(max-width: 769px)') {
+        flex: 1;
       }
     }
   }
@@ -84,30 +53,6 @@ a.btn {
 
 .slideInUp {
   animation: slideInUp 1s ease forwards;
-}
-
-@keyframes slideInLeft {
-  0% {
-    margin-left: -520px;
-    margin-right: 520px;
-  }
-
-  100% {
-    margin-left: 0;
-    margin-right: 40px;
-  }
-}
-
-@keyframes slideInRight {
-  0% {
-    margin-left: 520px;
-    margin-right: -520px;
-  }
-
-  100% {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 
 @keyframes slideInUp {
@@ -123,20 +68,29 @@ a.btn {
 }
 
 // INVESTMENTS
-
 .investments {
-  margin: 0 auto 117px auto;
+  padding: 82px 0 117px 0;
 
   & > p {
     margin: 0 0 94px 0;
   }
 
+  .card-container {
+    // flex-wrap: nowrap;
+
+    @include mQ('(max-width: 1024px)') {
+
+      .card {
+        margin-bottom: 30px;
+        padding: 39px 30px 56px 42px;
+      }
+    }
+  }
+
   .card {
-    max-width: 512px;
-    width: 100%;
+    width: 512px;
     height: auto;
-    flex-basis: 512px;
-    padding: 39px 0 56px 72px;
+    padding: 39px 30px 56px 72px;
 
     &:first-child {
       background: linear-gradient(
@@ -155,13 +109,12 @@ a.btn {
         ),
         url('/src/images/long-term-investment.jpg') top left / cover;
     }
-    span,
-    h3,
-    p {
-      max-width: 248px;
-    }
+  }
 
-    span {
+  .fund-container {
+    max-width: 248px;
+
+    h2 {
       font-size: 14px;
       text-transform: uppercase;
       line-height: 1.71;
@@ -169,6 +122,7 @@ a.btn {
       color: $primary-color;
       position: relative;
       margin-bottom: 82px;
+      font-weight: normal;
 
       &::after {
         content: '';
@@ -192,20 +146,6 @@ a.btn {
       margin-bottom: 28px;
     }
   }
-
-  .card-container {
-    flex-wrap: nowrap;
-
-    @include mQ('(max-width: 1024px)') {
-      flex-direction: column;
-
-      .card {
-        margin-right: 0;
-        margin-bottom: 30px;
-        padding: 39px 0 56px 42px;
-      }
-    }
-  }
 }
 
 // HOW IT WORKS
@@ -215,13 +155,12 @@ a.btn {
   text-align: center;
   color: $white;
   padding: 106px 0 143px 0;
-  margin-bottom: 134px;
 
-  @include mQ('(max-width: 796px)') {
-    padding: 106px 40px 143px 40px;
-  }
+  // @include mQ('(max-width: 796px)') {
+  //   padding: 106px 40px 143px 40px;
+  // }
 
-  .description {
+  .secondary-para {
     margin: 0 auto 50px auto;
     color: #e8f5e9;
   }
@@ -378,7 +317,7 @@ a.btn {
 // REVIEWS
 
 .reviews {
-  padding: 133px 0 92px 0;
+  padding: 267px 0 92px 0;
 
   h2 {
     line-height: 1.3;
@@ -387,13 +326,14 @@ a.btn {
     position: relative;
 
     &::before {
-      content: '';
-      width: 155px;
-      height: 108px;
-      border-radius: 4.5px;
-      background-color: rgba(102, 187, 106, 0.25);
+      content: '"';
+      font-size: 354px;
+      color: rgba(102, 187, 106, 0.25);
       position: absolute;
       z-index: -1;
+      line-height: 300px;
+      top: -32px;
+      left: -24px;
     }
   }
 
@@ -459,18 +399,20 @@ a.btn {
 
 // ACTION
 .action {
-  border-radius: 5px;
-  box-shadow: -1px 25px 20px 0 #f2f2f2;
-  text-align: center;
-  padding: 77px 0 79px 0;
-  margin-top: 92px;
+  padding: 92px 0 63px 0;
 
+  &__card {
+    border-radius: 5px;
+    box-shadow: -1px 25px 20px 0 #f2f2f2;
+    text-align: center;
+    padding: 77px 0 79px 0;
 
-  & > h2 {
-    margin-bottom: 40px;
+    h2 {
+      margin-bottom: 40px;
 
-    span {
-      color: $primary-color;
+      span {
+        color: $primary-color;
+      }
     }
   }
 }
@@ -488,7 +430,7 @@ a.btn {
   align-items: center;
 
   &-content {
-    width: 500px;
+    width: 850px;
     height: 500px;
     background-color: $white;
     border-radius: 5px;
@@ -498,6 +440,15 @@ a.btn {
       position: absolute;
       top: 5px;
       right: 5px;
+      font-size: 20px;
+      background-color: $white;
+      color: #000;
+      padding: 5px 10px;
     }
+  }
+
+  .my-video {
+    width: 100%;
+    height: 100%;
   }
 }

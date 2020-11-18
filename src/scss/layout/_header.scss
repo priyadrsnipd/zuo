@@ -1,35 +1,37 @@
 header {
-  transition: background-color 0.3s;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
   z-index: 100;
+  transition: box-shadow .3s linear;
 
   nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 45px 0;
-
-    @include mQ('(max-width: 1024px)') {
-      padding: 45px 40px;
-    }
-  }
-
-  ul {
-    padding-right: 20px;
-    margin-left: 58px;
+    transition:  padding .3s linear;
   }
 
   li {
-    padding: 6.5px 0;
+    padding: 6px 0;
     margin-right: 32px;
   }
 
-  a.btn {
-    @include mQ('(max-width: 425px)') {
-      display: none;
+  .nav-action {
+    margin-left: auto;
+  }
+
+  .btn {
+    @include mQ('(max-width: 855px)') {
+      border-color: $primary-color;
+      color: $primary-color;
+
+      &.active {
+        background-color: $primary-color;
+        color: $white;
+      }
     }
   }
 
@@ -37,9 +39,8 @@ header {
     display: none;
     padding: 8px;
     vertical-align: middle;
-    margin-right: 20px;
 
-    @include mQ('(max-width: 796px)') {
+    @include mQ('(max-width: 855px)') {
       display: inline-block;
     }
 
@@ -48,7 +49,7 @@ header {
       height: 2px;
       background-color: #000;
       margin-bottom: 0.3rem;
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
 
     .bar:nth-child(2) {
@@ -74,17 +75,18 @@ header {
     }
   }
 
-  @include mQ('(max-width: 816px)') {
-    position: relative;
+  @include mQ('(max-width: 855px)') {
+    background-color: $white;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
 
     nav {
-      padding: 15px 40px;
+      padding: 15px 0;
     }
 
     .collapse-nav {
       display: none;
       flex-direction: column;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: $white;
       position: absolute;
       right: 0;
       top: 100%;
@@ -92,74 +94,89 @@ header {
       width: 100%;
       padding: 30px 0;
       margin: 0;
+      border-top: 1px solid #ccc;
 
       & > li {
         width: 100%;
         text-align: center;
         margin: 0;
-        padding: 10px 20px;
-      }
-
-      li:hover {
-        background-color: rgba(255, 255, 255, 0.3);
+        padding: 20px 20px;
       }
 
       a {
-        color: $white;
+        color: #000;
       }
     }
   }
 }
 
+.brand-logo {
+  margin-right: 116px;
+}
+
+.brand-logo > img {
+  width: 123px;
+  height: 39px;
+}
+
 .sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // z-index: 100;
   background-color: $white;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
-  animation: fadeIn 1s ease forwards;
 
   nav {
-    padding: 15px 40px;
+    padding: 15px 0;
   }
 
-  a.btn {
+  .btn {
     color: $primary-color;
     border-color: $primary-color;
+
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+    }
   }
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
+// @keyframes fadeIn {
+//   0% {
+//     transition: transformX(0);
+//   }
 
-  100% {
-    opacity: 1;
-  }
-}
+//   100% {
+//     transition: transformX(100%);
+//   }
+// }
 
 .hero {
   display: flex;
   align-items: center;
-  height: 796px;
-  position: relative;
-  
+  min-height: 796px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: url('/src/images/main-illustration.png') no-repeat top right;
 
   &__content {
     max-width: 473px;
-    animation: slideInLeft 1s ease forwards;
 
     h1 {
       font-size: 46px;
       font-weight: bold;
       line-height: 1.4;
+      margin-bottom: 25px;
     }
 
     p {
-      margin: 25px 0 54px 0;
+      margin-bottom: 54px;
       font-size: 18px;
       line-height: 1.8;
       color: #263238;
@@ -170,22 +187,33 @@ header {
     position: absolute;
     right: 0;
     top: 0;
-    z-index: -10;
   }
 
-  @include mQ('(max-width: 425px)') {
-    img {
-      display: none;
+  @include mQ('(max-width: 768px)') {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url('/src/images/main-illustration.png') no-repeat top right;
+
+    h1,
+    p {
+      color: #fff;
     }
   }
 }
 
-@keyframes slideInLeft {
+.fade-out {
+  animation: fadeOut 1s 1s ease both;
+}
+
+@keyframes fadeOut {
   0% {
-    margin-left: -563px;
+    opacity: 1;
   }
 
   100% {
-    margin-left: 0;
+    opacity: 0;
   }
 }

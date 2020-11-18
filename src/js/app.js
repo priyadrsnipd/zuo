@@ -1,5 +1,24 @@
+const throttleFunction = (func, delay) => {
+  // Previously called time of the function 
+  let prev = 0;
+  return (...args) => {
+    // Current called time of the function 
+    let now = new Date().getTime();
+
+    // If difference is greater than delay call 
+    // the function again. 
+    if (now - prev > delay) {
+      prev = now;
+      // "..." is the spread operator here  
+      // returning the function with the  
+      // array of arguments 
+      return func(...args);
+    }
+  }
+}
+
 // Animate when scrolled to that position
-(function() {
+(function () {
   var elements;
   var windowHeight;
 
@@ -10,27 +29,34 @@
 
   function checkPosition() {
     for (var i = 0; i < elements.length; i++) {
+    console.log(positionFromTop);
+
       var element = elements[i];
       var positionFromTop = elements[i].getBoundingClientRect().top;
 
-      if (positionFromTop - windowHeight <= -10) {
+      if (positionFromTop - windowHeight <= 0) {
         element.classList.add('slideInUp');
         element.classList.remove('hidden');
+      }
+      else {
+        element.classList.remove('slideInUp');
+        element.classList.add('hidden');
       }
     }
   }
 
-  window.addEventListener('scroll', checkPosition);
-  window.addEventListener('resize', init);
 
+  window.addEventListener('scroll', throttleFunction(checkPosition, 1000));
+  window.addEventListener('resize', init);
+  
   init();
-  checkPosition();
+  // checkPosition();
 })();
 
 // Sticky header
 const mainHeader = document.getElementById('mainHeader');
-var sticky = window.innerHeight;
-window.addEventListener('scroll', makeHeaderSticky);
+var sticky = parseInt(window.getComputedStyle(mainHeader).height);
+window.addEventListener('scroll', throttleFunction(makeHeaderSticky, 100));
 function makeHeaderSticky() {
   if (window.pageYOffset > sticky) {
     mainHeader.classList.add("sticky");
@@ -41,24 +67,35 @@ function makeHeaderSticky() {
 
 // Hamburger Icon
 const hamburgerIcon = document.querySelector('.hamburger-icon');
-const mainNav = document.querySelector(".collapse-nav");
+const mainNav = document.querySelector(".horizontal-nav");
 let isNavOpen = false;
 
 hamburgerIcon.addEventListener('click', () => {
-  if(!isNavOpen) {
-    mainNav.style.display = "flex";
+  if (!isNavOpen) {
+    mainNav.classList.add('collapse-nav');
     hamburgerIcon.classList.add('close-icon');
+    document.querySelector('body').style.overflow = "hidden";
     isNavOpen = true;
   }
 
   else {
-    mainNav.style.display = "none";
-    hamburgerIcon.classList.remove('close-icon');
-    isNavOpen = false;
+    closeNav();
   }
 
 });
 
+mainNav.addEventListener('click', (e) => {
+  if (e.target && e.target.closest('a')) {
+    closeNav();
+  }
+});
+
+function closeNav() {
+  mainNav.classList.remove('collapse-nav');
+  hamburgerIcon.classList.remove('close-icon');
+  document.querySelector('body').style.overflow = "scroll";
+  isNavOpen = false;
+}
 // Modal
 
 const investNowBtn = document.getElementById('investNow');
@@ -85,7 +122,7 @@ investNowBtn.addEventListener('click', () => {
 
 closeModal.addEventListener('click', () => {
   let myVideoSrc = myVideo.src;
-        myVideo.src = myVideoSrc;
+  myVideo.src = myVideoSrc;
   toggleModal();
 })
 

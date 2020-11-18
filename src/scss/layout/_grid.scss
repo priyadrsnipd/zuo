@@ -1,27 +1,26 @@
+.container,
+.container-fluid {
+  width: 100%;
+  margin: 0 auto;
+
+  
+}
+
 .container {
-  @include setContainerWidth(1200);
+  max-width: 1200px;
+  padding: 0 20px;
+  // @include mQ('(max-width: 1220px)') {
+  //   padding: 0 20px;
+  // }
 }
 
-.inner-container {
-  @include setContainerWidth(1056);
+.container-fluid {
+  max-width: 1056px;
 
-  @include mQ("(max-width: 1024px)") {
-    padding: 0 40px;
-  }
-
-  @include mQ("(max-width: 425px)") {
-    padding: 0 20px;
-  }
+  @include mQ('(max-width: 1056px)') {
+      padding: 0 20px;
+    }
 }
-
-.outer-container {
-  @include setContainerWidth(1440);
-  @include mQ("(max-width: 1024px)") {
-    padding: 0 40px;
-  }
-}
-
-
 
 .row {
   width: 100%;

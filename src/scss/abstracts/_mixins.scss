@@ -22,10 +22,3 @@
          url($svgUrl) format('svg'); /* Legacy iOS */
   }
 }
-
-// Max width
-@mixin setContainerWidth($maxwidth) {
-  max-width: $maxwidth + px;
-  width: 100%;
-  margin: 0 auto;
-}

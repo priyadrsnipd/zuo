@@ -82,36 +82,40 @@ header {
     nav {
       padding: 15px 0;
     }
+  }
+}
 
-    .collapse-nav {
-      display: none;
-      flex-direction: column;
-      background-color: $white;
-      position: absolute;
-      right: 0;
-      top: 100%;
-      align-items: center;
-      width: 100%;
-      padding: 30px 0;
-      margin: 0;
-      border-top: 1px solid #ccc;
+.collapse-nav {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  align-items: center;
+  width: 100%;
+  padding: 30px 0;
+  margin: 0;
+  border-top: 1px solid #ccc;
 
-      & > li {
-        width: 100%;
-        text-align: center;
-        margin: 0;
-        padding: 20px 20px;
-      }
+  & > li {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 20px 20px;
+  }
 
-      a {
-        color: #000;
-      }
-    }
+  a {
+    color: #000;
   }
 }
 
 .brand-logo {
   margin-right: 116px;
+
+  @include mQ('(max-width: 855px)') {
+    margin-right: 0;
+  }
 }
 
 .brand-logo > img {
@@ -120,11 +124,6 @@ header {
 }
 
 .sticky {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  // z-index: 100;
   background-color: $white;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
 
@@ -143,16 +142,6 @@ header {
   }
 }
 
-// @keyframes fadeIn {
-//   0% {
-//     transition: transformX(0);
-//   }
-
-//   100% {
-//     transition: transformX(100%);
-//   }
-// }
-
 .hero {
   display: flex;
   align-items: center;
@@ -167,6 +156,7 @@ header {
 
   &__content {
     max-width: 473px;
+    transition: all .5s;
 
     h1 {
       font-size: 46px;
@@ -205,15 +195,20 @@ header {
 }
 
 .fade-out {
-  animation: fadeOut 1s 1s ease both;
+  // animation: fadeOut 1s linear both;
+  opacity: 0;
 }
 
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
+// @keyframes fadeOut {
+//   0% {
+//     opacity: 1;
+//   }
 
-  100% {
-    opacity: 0;
-  }
-}
+//   50% {
+//     opacity: 0.5;
+//   }
+
+//   100% {
+//     opacity: 0;
+//   }
+// }

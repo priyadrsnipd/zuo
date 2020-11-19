@@ -9,7 +9,7 @@ const throttleFunction = (func, delay) => {
     // the function again. 
     if (now - prev > delay) {
       prev = now;
-      // "..." is the spread operator here  
+      // '...' is the spread operator here  
       // returning the function with the  
       // array of arguments 
       return func(...args);
@@ -29,7 +29,7 @@ const throttleFunction = (func, delay) => {
 
   function checkPosition() {
     for (var i = 0; i < elements.length; i++) {
-    console.log(positionFromTop);
+      console.log(positionFromTop);
 
       var element = elements[i];
       var positionFromTop = elements[i].getBoundingClientRect().top;
@@ -46,35 +46,38 @@ const throttleFunction = (func, delay) => {
   }
 
 
-  window.addEventListener('scroll', throttleFunction(checkPosition, 1000));
+  window.addEventListener('scroll', throttleFunction(checkPosition, 100));
   window.addEventListener('resize', init);
-  
+
   init();
   // checkPosition();
 })();
 
 // Sticky header
 const mainHeader = document.getElementById('mainHeader');
+const heroContent = document.querySelector('.hero__content');
 var sticky = parseInt(window.getComputedStyle(mainHeader).height);
 window.addEventListener('scroll', throttleFunction(makeHeaderSticky, 100));
 function makeHeaderSticky() {
   if (window.pageYOffset > sticky) {
-    mainHeader.classList.add("sticky");
+    mainHeader.classList.add('sticky');
+    heroContent.classList.add('fade-out');
   } else {
-    mainHeader.classList.remove("sticky");
+    mainHeader.classList.remove('sticky');
+    heroContent.classList.remove('fade-out');
   }
 }
 
 // Hamburger Icon
 const hamburgerIcon = document.querySelector('.hamburger-icon');
-const mainNav = document.querySelector(".horizontal-nav");
+const mainNav = document.querySelector('.horizontal-nav');
 let isNavOpen = false;
 
 hamburgerIcon.addEventListener('click', () => {
   if (!isNavOpen) {
     mainNav.classList.add('collapse-nav');
     hamburgerIcon.classList.add('close-icon');
-    document.querySelector('body').style.overflow = "hidden";
+    document.querySelector('body').style.overflow = 'hidden';
     isNavOpen = true;
   }
 
@@ -93,7 +96,7 @@ mainNav.addEventListener('click', (e) => {
 function closeNav() {
   mainNav.classList.remove('collapse-nav');
   hamburgerIcon.classList.remove('close-icon');
-  document.querySelector('body').style.overflow = "scroll";
+  document.querySelector('body').style.overflow = 'scroll';
   isNavOpen = false;
 }
 // Modal
@@ -107,16 +110,15 @@ let isClose = true;
 
 function toggleModal() {
   if (isClose) {
-    modal.style.display = "flex";
+    modal.style.display = 'flex';
     isClose = false;
   }
   else {
-    modal.style.display = "none";
+    modal.style.display = 'none';
     isClose = true;
   }
 }
 investNowBtn.addEventListener('click', () => {
-  console.log("hello i'm invest now event listener");
   toggleModal();
 })
 

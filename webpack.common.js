@@ -6,14 +6,14 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        use: ["html-loader"]
+        use: ["html-loader-srcset"]
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
         use: {
           loader: "file-loader",
           options: {
-            name: "[name].[hash].[ext]",
+            name: "[name].[ext]",
             outputPath: "images"
           }
         }

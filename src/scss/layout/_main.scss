@@ -2,8 +2,8 @@ html {
   scroll-behavior: smooth;
 }
 
-.btn {
-  display: inline-block;
+main {
+  margin-top: 100vh;
 }
 
 .secondary-para {
@@ -16,13 +16,16 @@ html {
 
 // OPPORTUNITIES
 .opportunities {
-  margin-top: 100vh;
   text-align: center;
   padding-bottom: 104px;
   border-bottom: 2px solid #f7f7f7;
 
   @include mQ('(max-width: 768px)') {
     padding-top: 50px;
+  }
+
+  figure {
+    margin-bottom: 21px;
   }
 
   .secondary-para {
@@ -35,17 +38,17 @@ html {
     width: 328px;
   }
 
+  .card--green {
+    figure {
+      margin-bottom: 61px;
+    }
+  }
+
   .card-container {
     .card {
       @include mQ('(max-width: 1024px)' ) {
         margin-right: 0;
         margin-bottom: 30px;
-      }
-    }
-
-    .card:last-child {
-      @include mQ('(max-width: 769px)') {
-        flex: 1;
       }
     }
   }
@@ -165,14 +168,14 @@ html {
     color: #e8f5e9;
   }
 
-  & ul {
+  ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 83px;
   }
 
-  & li {
+  li {
     border-radius: 50%;
     border: solid 2px #b3dcb6;
     background-color: $primary-color;

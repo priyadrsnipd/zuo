@@ -13,7 +13,9 @@
     <header id="mainHeader">
       <div class="container">
         <nav>
-          <a href="#" class="brand-logo"><img src="./images/brand-logo.svg" alt="logo"></a>
+          <a href="#" class="brand-logo">
+            <img src="./images/logo.png" srcset="./images/logo.png 1x, ./images/logo2x.png 2x" alt="logo">
+          </a>
           <ul class="horizontal-nav">
             <li class="active-nav"><a href="#">Home</a></li>
             <li><a href="#product">Product</a></li>
@@ -47,11 +49,14 @@
       <section class="opportunities">
         <div class="container-fluid">
           <h2 class="hidden secondary-heading">New Opportunities</h2>
-          <p class="secondary-para">We are the first and the only crowdfunding platform enabling you
+          <p class="hidden secondary-para">We are the first and the only crowdfunding platform enabling you
             to help finance our farmers.</p>
-          <div class="card-container">
+          <div class="hidden card-container">
             <article class="card">
-              <img src="./images/farmers.svg" alt="Farmers" width="78" height="64">
+              <figure>
+                <img src="./images/farmers.svg" alt="Farmers" width="78" height="64">
+
+              </figure>
               <div>
                 <h3>Connect with our farmers</h3>
                 <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
@@ -60,7 +65,10 @@
               </div>
             </article>
             <article class="card card--green">
-              <img src="./images/grow.svg" alt="Grow" width="79" height="32">
+              <figure>
+                <img src="./images/grow.svg" alt="Grow" width="79" height="32">
+
+              </figure>
               <div>
                 <h3>Grow your business</h3>
                 <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
@@ -69,7 +77,9 @@
               </div>
             </article>
             <article class="card">
-              <img src="./images/investment.svg" alt="Investment" width="75" height="56">
+              <figure>
+                <img src="./images/investment.svg" alt="Investment" width="75" height="56">
+              </figure>
               <div>
                 <h3>Social Impact Invesment</h3>
                 <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
@@ -83,11 +93,12 @@
       <section id="product" class="investments">
         <div class="container-fluid">
           <h2 class="hidden secondary-heading">Invest on your convenience</h2>
-          <p class="secondary-para">Autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
+          <p class="hidden secondary-para">Autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
+            molestiae
             consequatur, vel illum
             qui
             dolorem eum fugiat quo voluptas nulla</p>
-          <div class="card-container">
+          <div class="hidden card-container">
             <article class="card">
               <div class="fund-container">
                 <h2>new farm today</h2>
@@ -117,46 +128,47 @@
       </section>
       <section class="how-it-works container">
         <!-- <div class="container-fluid"> -->
-          <h2 class="hidden secondary-heading">How it works</h2>
-          <p class="secondary-para">Take your pick from the supply chain and participate in agribusiness projects that are
-            backed up not only by
-            Zou, but also by the best land, family heritage, innovation and overall superior expertise.</p>
-          <ul id="investmentProcess">
-            <li class="active"><button class="btn step1">01</button></li>
-            <li><button class="btn step2">02</button></li>
-            <li><button class="btn step3">03</button></li>
-            <li><button class="btn step4">04</button></li>
-          </ul>
-          <div class="steps">
-            <section class="investment-step1 show-step">
-              <h3>Select your farmshare and complete reservation form.1</h3>
-              <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-                eligendi
-                optio cumque nihil impedit quo minus id quod maxime placeat facere
-              </p>
-            </section>
-            <section class="investment-step2">
-              <h3>Select your farmshare and complete reservation form.2</h3>
-              <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-                eligendi
-                optio cumque nihil impedit quo minus id quod maxime placeat facere
-              </p>
-            </section>
-            <section class="investment-step3">
-              <h3>Select your farmshare and complete reservation form.3</h3>
-              <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-                eligendi
-                optio cumque nihil impedit quo minus id quod maxime placeat facere
-              </p>
-            </section>
-            <section class="investment-step4">
-              <h3>Select your farmshare and complete reservation form.4</h3>
-              <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-                eligendi
-                optio cumque nihil impedit quo minus id quod maxime placeat facere
-              </p>
-            </section>
-          </div>
+        <h2 class="hidden secondary-heading">How it works</h2>
+        <p class="hidden secondary-para">Take your pick from the supply chain and participate in agribusiness projects
+          that are
+          backed up not only by
+          Zou, but also by the best land, family heritage, innovation and overall superior expertise.</p>
+        <ul id="investmentProcess">
+          <li class="active"><button class="btn step1">01</button></li>
+          <li><button class="btn step2">02</button></li>
+          <li><button class="btn step3">03</button></li>
+          <li><button class="btn step4">04</button></li>
+        </ul>
+        <div class="steps">
+          <section class="investment-step1 show-step">
+            <h3>Select your farmshare and complete reservation form.1</h3>
+            <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+              eligendi
+              optio cumque nihil impedit quo minus id quod maxime placeat facere
+            </p>
+          </section>
+          <section class="investment-step2">
+            <h3>Select your farmshare and complete reservation form.2</h3>
+            <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+              eligendi
+              optio cumque nihil impedit quo minus id quod maxime placeat facere
+            </p>
+          </section>
+          <section class="investment-step3">
+            <h3>Select your farmshare and complete reservation form.3</h3>
+            <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+              eligendi
+              optio cumque nihil impedit quo minus id quod maxime placeat facere
+            </p>
+          </section>
+          <section class="investment-step4">
+            <h3>Select your farmshare and complete reservation form.4</h3>
+            <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+              eligendi
+              optio cumque nihil impedit quo minus id quod maxime placeat facere
+            </p>
+          </section>
+        </div>
         <!-- </div> -->
       </section>
       <section class="reviews">
@@ -278,12 +290,14 @@
           </nav>
           <section>
             <h3>Blog Zou</h3>
-            <p>Write email to us <a href="mail-to:info@zoufarm.com">info@zoufarm.com</a></p>
+            <p>Write email to us <a href="mailto:info@zoufarm.com"><b>info@zoufarm.com</b></a></p>
             <a href="javascript:void(0);" class="btn btn-secondary btn--small">Sign In</a>
           </section>
         </div>
         <div class="copyright">
-          <a href="#" class="brand-logo"><img src="./images/brand-logo.svg" alt="logo"></a>
+          <a href="#" class="brand-logo">
+            <img src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
+          </a>
           <p>© Copyright 2020. Zou Capital Pty Ltd (ABN 45 4545 87363).</p>
         </div>
       </div>
@@ -291,7 +305,8 @@
     <div class="modal">
       <div class="modal-content">
         <button class="btn" id="closeModal">X</button>
-        <iframe id="myvideo" class="my-video" width="500" height="500" src="https://www.youtube.com/embed/EFafSYg-PkI" frameborder="0"
+        <iframe id="myvideo" class="my-video" width="500" height="500" src="https://www.youtube.com/embed/EFafSYg-PkI"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>

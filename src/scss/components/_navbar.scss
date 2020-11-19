@@ -3,6 +3,10 @@
   display: inline-flex;
   border-right: 1px solid var(--half-bgcolor);
 
+  @include mQ('(max-width: 855px)') {
+    display: none;
+  }
+
   li {
     display: inline-block;
     vertical-align: middle;
@@ -13,7 +17,8 @@
   }
 
   a:hover {
-      color: $primary-color;
+    display: inline-block;
+      color: $primary-color;      
   }
 
   .active-nav {

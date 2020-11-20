@@ -1,0 +1,57 @@
+
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 796px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: url('/images/main-illustration.png') no-repeat top right;
+
+  &__content {
+    max-width: 473px;
+    transition: all .5s;
+
+    h1 {
+      font-size: 46px;
+      font-weight: bold;
+      line-height: 1.4;
+      margin-bottom: 25px;
+    }
+
+    p {
+      margin-bottom: 54px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #263238;
+    }
+  }
+
+  img {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  @include mQ('(max-width: 768px)') {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url('/images/main-illustration.png') no-repeat top right;
+
+    h1,
+    p {
+      color: #fff;
+    }
+  }
+}
+
+.fade-out {
+  // animation: fadeOut 1s linear both;
+  opacity: 0;
+}

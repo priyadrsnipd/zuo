@@ -1,62 +1,56 @@
-.container {
-  @include setContainerWidth(1200);
-}
-
-.inner-container {
-  @include setContainerWidth(1056);
-
-  @include mQ("(max-width: 1024px)") {
-    padding: 0 40px;
-  }
-
-  @include mQ("(max-width: 425px)") {
-    padding: 0 20px;
-  }
-}
-
-.outer-container {
-  @include setContainerWidth(1440);
-  @include mQ("(max-width: 1024px)") {
-    padding: 0 40px;
-  }
-}
-
-
-
-.row {
+.container,
+.container-fluid {
   width: 100%;
+  margin: 0 auto;
 }
 
-[class*="col-"] {
-  float: left;
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
-@for $i from 1 to $grid-columns+1 {
-  .col-#{$i} {
-    width: $grid-percentage * $i;
-  }
-}
-
-@media #{$small} {
-  @for $i from 1 to $grid-columns+1 {
-    .col-sm-#{$i} {
-      width: $grid-percentage * $i;
+.container-fluid {
+  max-width: 1056px;
+  // padding: 0 20px;
+  @include mQ('(max-width: 1056px)') {
+      padding: 0 20px;
     }
-  }
 }
 
-@media #{$medium} {
-  @for $i from 1 to $grid-columns+1 {
-    .col-md-#{$i} {
-      width: $grid-percentage * $i;
-    }
-  }
-}
+// .row {
+//   width: 100%;
+// }
 
-@media #{$large} {
-  @for $i from 1 to $grid-columns+1 {
-    .col-lg-#{$i} {
-      width: $grid-percentage * $i;
-    }
-  }
-}
+// [class*="col-"] {
+//   float: left;
+// }
+
+// @for $i from 1 to $grid-columns+1 {
+//   .col-#{$i} {
+//     width: $grid-percentage * $i;
+//   }
+// }
+
+// @media #{$small} {
+//   @for $i from 1 to $grid-columns+1 {
+//     .col-sm-#{$i} {
+//       width: $grid-percentage * $i;
+//     }
+//   }
+// }
+
+// @media #{$medium} {
+//   @for $i from 1 to $grid-columns+1 {
+//     .col-md-#{$i} {
+//       width: $grid-percentage * $i;
+//     }
+//   }
+// }
+
+// @media #{$large} {
+//   @for $i from 1 to $grid-columns+1 {
+//     .col-lg-#{$i} {
+//       width: $grid-percentage * $i;
+//     }
+//   }
+// }

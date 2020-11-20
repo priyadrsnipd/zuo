@@ -1,5 +1,15 @@
 import './scss/style.scss';
 import './js/app.js';
-import mainIllustration from './images/main-illustration.png';
-import sti from './images/short-term-investment.jpg';
-import lti from './images/long-term-investment.jpg';
+
+// const imagemin = require("imagemin");
+// const webp = require("imagemin-webp");
+
+// imagemin(["sources/*.png"], "images", {
+//   use: [
+//     webp({
+//       quality: 75
+//     })
+//   ]
+// }).then(function() {
+//   console.log("Images converted!");
+// });

@@ -101,7 +101,7 @@ main {
           rgba(97, 118, 127, 0),
           $greyish-black
         ),
-        url('/src/images/short-term-investment.jpg') top left / cover;
+        url('../images/short-term-investment.jpg') top left / cover;
     }
 
     &:last-child {
@@ -110,7 +110,7 @@ main {
           rgba(97, 118, 127, 0),
           $greyish-black
         ),
-        url('/src/images/long-term-investment.jpg') top left / cover;
+        url('../images/long-term-investment.jpg') top left / cover;
     }
   }
 
@@ -154,7 +154,7 @@ main {
 // HOW IT WORKS
 
 .how-it-works {
-  background: url('/src/images/how-it-works.png') no-repeat center / cover;
+  background: url('../images/how-it-works.png') no-repeat center / cover;
   text-align: center;
   color: $white;
   padding: 106px 0 143px 0;

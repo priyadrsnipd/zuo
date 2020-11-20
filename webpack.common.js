@@ -6,7 +6,7 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        use: ["html-loader-srcset"]
+        use: ["html-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,

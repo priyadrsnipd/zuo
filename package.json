@@ -6,11 +6,12 @@
   "scripts": {
     "start": "webpack-dev-server  --config webpack.dev.js --open",
     "build": "webpack  --config webpack.prod.js",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": "https://priyadrsnipd.github.io/zuo",
   "devDependencies": {
     "bootstrap": "^4.3.1",
     "clean-webpack-plugin": "^3.0.0",

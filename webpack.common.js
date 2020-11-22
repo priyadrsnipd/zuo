@@ -1,7 +1,10 @@
 const path = require("path");
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src', 'index.js'),
+  entry: [
+    path.resolve(__dirname, 'src', 'index.js'),
+    path.resolve(__dirname, 'src', 'vendor.js'),
+  ],
   module: {
     rules: [
       {
@@ -9,7 +12,7 @@ module.exports = {
         use: ["html-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        test: /\.(png|svg|webp|jpg|jpeg|gif)$/,
         use: {
           loader: "file-loader",
           options: {

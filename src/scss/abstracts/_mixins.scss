@@ -7,18 +7,82 @@
   }
 }
 
+$breakpoint-small: 600px;
+$breakpoint-med-small: 960px;
+$breakpoint-med: 1175px;
+
+@mixin screen($size, $type: max, $pixels: $breakpoint-small) {
+  @if $size == 'small' {
+    @media screen and (#{$type}-width: $breakpoint-small) {
+        @content;
+    }
+  }
+  @else if $size == 'med-small' {
+    @media screen and (#{$type}-width: $breakpoint-med-small) {
+        @content;
+    }
+  }
+  @else if $size == 'med' {
+    @media screen and (#{$type}-width: $breakpoint-med) {
+        @content;
+    }
+  }
+ @else if $size == 'large' {
+    @media screen and (#{$type}-width: $breakpoint-med) {
+        @content;
+    }
+  }
+  @else if $size == 'custom' {
+    @media screen and (#{$type}-width: $pixels + px) {
+     @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+// Centering
+@mixin center($position) {
+  position: absolute;
+  
+  @if $position == 'vertical' {
+    top: 50%;
+    // -webkit-transform: translateY(-50%);
+    // -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  @else if $position == 'horizontal' {
+    left: 50%;
+    // -webkit-transform: translateX(-50%);
+    // -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  }
+  @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    // -webkit-transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Font size
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
 // Font family
-@mixin fontFamily($name, $weight, $eotUrl1, $eotUrl2, $woff2Url, $woffUrl, $truetypeUrl, $svgUrl) {
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) { 
   @font-face {
-    font-family: $name;
-    font-style: normal;
+    font-family: quote($font-name);
+    src: url($file-name + '.eot');
+    src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+         url($file-name + '.woff') format('woff'),
+         url($file-name + '.ttf')  format('truetype'),
+         url($file-name + '.svg##{$font-name}')  format('svg');
     font-weight: $weight;
-    src: url('$eotUrl1'); /* IE9 Compat Modes */
-    src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
-         url($eotUrl2) format('embedded-opentype'), /* IE6-IE8 */
-         url($woff2Url) format('woff2'), /* Super Modern Browsers */
-         url($woffUrl) format('woff'), /* Modern Browsers */
-         url($truetypeUrl) format('truetype'), /* Safari, Android, iOS */
-         url($svgUrl) format('svg'); /* Legacy iOS */
+    font-style: $style;
   }
 }

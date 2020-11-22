@@ -9,7 +9,7 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: url('../images/main-illustration.png') no-repeat top right;
+  background: url('../images/main.png') no-repeat top right;
 
   &__content {
     max-width: 473px;
@@ -42,7 +42,7 @@
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
       ),
-      url('../images/main-illustration.png') no-repeat top right;
+      url('../images/main.png') no-repeat top right;
 
     h1,
     p {

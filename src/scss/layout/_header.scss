@@ -110,7 +110,7 @@ header {
   }
 }
 
-.brand-logo {
+.logo {
   margin-right: 116px;
 
   @include mQ('(max-width: 855px)') {
@@ -118,7 +118,7 @@ header {
   }
 }
 
-.brand-logo > img {
+.logo > img {
   width: 123px;
   height: 39px;
 }

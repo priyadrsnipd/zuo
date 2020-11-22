@@ -54,10 +54,11 @@ const throttleFunction = (func, delay) => {
 })();
 
 // Sticky header
+const myDoc = document.querySelector('body');
 const mainHeader = document.getElementById('mainHeader');
 const heroContent = document.querySelector('.hero__content');
 var sticky = parseInt(window.getComputedStyle(mainHeader).height);
-window.addEventListener('scroll', throttleFunction(makeHeaderSticky, 100));
+
 function makeHeaderSticky() {
   if (window.pageYOffset > sticky) {
     mainHeader.classList.add('sticky');
@@ -67,17 +68,39 @@ function makeHeaderSticky() {
     heroContent.classList.remove('fade-out');
   }
 }
+window.addEventListener('scroll', throttleFunction(makeHeaderSticky, 100));
+
+
+function toggleModal() {
+  if (isClose) {
+    modal.style.display = 'flex';
+    isClose = false;
+  }
+  else {
+    modal.style.display = 'none';
+    isClose = true;
+  }
+}
+
+
+function closeNav() {
+  mainNav.classList.remove('collapse-nav');
+  hamburgerIcon.classList.remove('close-icon');
+  myDoc.style.overflow = 'scroll';
+  isNavOpen = false;
+}
+
 
 // Hamburger Icon
 const hamburgerIcon = document.querySelector('.hamburger-icon');
-const mainNav = document.querySelector('.horizontal-nav');
+const mainNav = document.querySelector('.navbar');
 let isNavOpen = false;
 
 hamburgerIcon.addEventListener('click', () => {
   if (!isNavOpen) {
     mainNav.classList.add('collapse-nav');
     hamburgerIcon.classList.add('close-icon');
-    document.querySelector('body').style.overflow = 'hidden';
+    myDoc.style.overflow = 'hidden';
     isNavOpen = true;
   }
 
@@ -93,12 +116,7 @@ mainNav.addEventListener('click', (e) => {
   }
 });
 
-function closeNav() {
-  mainNav.classList.remove('collapse-nav');
-  hamburgerIcon.classList.remove('close-icon');
-  document.querySelector('body').style.overflow = 'scroll';
-  isNavOpen = false;
-}
+
 // Modal
 
 const investNowBtn = document.getElementById('investNow');
@@ -107,27 +125,15 @@ const closeModal = document.getElementById('closeModal');
 const myVideo = document.getElementById('myvideo');
 let isClose = true;
 
-
-function toggleModal() {
-  if (isClose) {
-    modal.style.display = 'flex';
-    isClose = false;
-  }
-  else {
-    modal.style.display = 'none';
-    isClose = true;
-  }
-}
-investNowBtn.addEventListener('click', () => {
-  toggleModal();
-})
-
 closeModal.addEventListener('click', () => {
   let myVideoSrc = myVideo.src;
   myVideo.src = myVideoSrc;
   toggleModal();
 })
 
+investNowBtn.addEventListener('click', () => {
+  toggleModal();
+})
 // Show and hide investment Process Steps
 const investmentProcess = document.getElementById('investmentProcess');
 
@@ -157,6 +163,8 @@ investmentProcess.addEventListener('click', (e) => {
 })
 
 // Review Carousel
+
+
 
 const carousel = document.querySelector('.carousel');
 const moveLeft = document.getElementById('moveLeft');

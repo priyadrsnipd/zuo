@@ -84,5 +84,6 @@ $breakpoint-med: 1175px;
          url($file-name + '.svg##{$font-name}')  format('svg');
     font-weight: $weight;
     font-style: $style;
+    font-display: swap;
   }
 }

@@ -39,7 +39,6 @@ header {
     display: none;
     padding: 8px;
     vertical-align: middle;
-    cursor: pointer;
 
     @include mQ('(max-width: 855px)') {
       display: inline-block;

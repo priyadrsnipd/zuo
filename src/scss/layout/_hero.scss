@@ -36,13 +36,6 @@
   }
 
    @include mQ('(max-width: 768px)') {
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-      ),
-      url('../images/main.png') no-repeat top right;
-
     h1,
     p {
       color: #fff;

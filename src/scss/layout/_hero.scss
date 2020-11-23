@@ -9,7 +9,6 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: url('../images/main.png') no-repeat top right;
 
   &__content {
     max-width: 473px;
@@ -36,7 +35,7 @@
     top: 0;
   }
 
-  @include mQ('(max-width: 768px)') {
+   @include mQ('(max-width: 768px)') {
     background: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.5),
@@ -54,4 +53,13 @@
 .fade-out {
   // animation: fadeOut 1s linear both;
   opacity: 0;
+}
+
+
+.nowebp .hero {
+  background: url('../images/main.png') no-repeat top right;
+}
+
+.webp .hero {
+  background: url('../images/main.webp') no-repeat top right;
 }

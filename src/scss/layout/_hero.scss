@@ -36,6 +36,7 @@
   }
 
    @include mQ('(max-width: 768px)') {
+
     h1,
     p {
       color: #fff;
@@ -48,3 +49,28 @@
   opacity: 0;
 }
 
+.nowebp .hero {
+  background: url('../images/main.png') no-repeat top right;
+
+  @include mQ('(max-width: 768px)') {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url('../images/main.png') no-repeat top right;
+  }
+}
+
+.webp .hero {
+  background: url('../images/main.webp') no-repeat top right;
+
+  @include mQ('(max-width: 768px)') {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url('../images/main.webp') no-repeat top right;
+  }
+}

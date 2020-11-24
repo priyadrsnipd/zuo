@@ -7,6 +7,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 
 module.exports = merge(common, {
   mode: 'production',
@@ -43,13 +44,26 @@ module.exports = merge(common, {
               },
             ],
           ],
-        },
+        }
       }),
     ]
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' })
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new HtmlCriticalWebpackPlugin({
+      base: path.resolve(__dirname, 'dist'),
+      src: 'index.html',
+      dest: 'index.html',
+      inline: true,
+      minify: true,
+      extract: true,
+      width: 375,
+      height: 565,
+      penthouse: {
+        blockJSRequests: false,
+      }
+    })
   ],
   module: {
     rules: [

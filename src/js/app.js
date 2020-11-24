@@ -187,8 +187,6 @@ const FlexSlider = {
   },
 
   addEvents: function () {
-    var that = this;
-
     // click on move item button
     moveRight.addEventListener('click', () => {
       moveLeft.classList.remove('active');
